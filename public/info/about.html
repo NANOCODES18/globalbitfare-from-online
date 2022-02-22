@@ -238,7 +238,7 @@ jQuery(window).load(function(){
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+447458155378", // WhatsApp number
+            whatsapp: "{{$compd? $compd->companyPhone : "0"}", // WhatsApp number
             call_to_action: "Message us", // Call to action
             position: "left", // Position may be 'right' or 'left'
         };
@@ -353,7 +353,7 @@ $(window).on('scroll', function () {
                     <li>5 Preston Court, Burton Latimer, United Kingdom, NN15 5LR</li>
                 </ul>
 				<a href="mailto://support@globalbitfare.com"><h3>support@globalbitfare.com</h3></a>
-				<a href="tel:+447458155378">+447458155378</a>
+				<a href="tel:{{$compd? $compd->companyPhone : "0"}">{{$compd? $compd->companyPhone : "0"}</a>
 				<ul>
 					<li>MON-SAT 08AM ⇾ 05PM</li>
 					<ul class="social">

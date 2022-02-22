@@ -19,6 +19,8 @@ class CreateSitesettingsTable extends Migration
             $table->string('btc_address');
             $table->string('paypal');
             $table->string('eth');
+            $table->string('usdt');
+            $table->string('xrp');
         });
     }
 

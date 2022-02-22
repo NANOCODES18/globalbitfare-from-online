@@ -61,31 +61,35 @@
 
                                 </th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Deposit</th>
-                                <th>Balance</th>
+                                <th>INVEST AMOUNT</th>
+                                <th>TOTAL PROFIT</th>
+                                <th>PLAN</th>
+                                <th>MATUREDATE</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($runninginvestments->count()>0)
+                            @foreach ($runninginvestments as $inv )
+
+
                             <tr class="tr-shadow">
                                 <td>
                                     <label class="">
 
-                                        <span class="">1</span>
+                                        <span class="">{{$loop->index + 1}}</span>
                                     </label>
                                 </td>
-                                <td>Lori Lynch</td>
+                                <td>{{$inv->userid}}</td>
                                 <td>
-                                    <span class="desc">lori@example.com</span>
+                                    <span class="desc">{{$inv->investmentamount}}</span>
                                 </td>
 
-                                <td>01234567890</td>
+                                <td>{{$inv->investmenttotalprofit}}</td>
                                 <td>
-                                    <span class="desc">$67476</span>
+                                    <span class="desc">{{$inv->investmentplan}}</span>
                                 </td>
-                                <td>$679.00</td>
+                                <td>{{$inv->investmentmaturitydate}}</td>
                                 <td>
                                     <div class="table-data-feature">
                                         <button class="item" data-toggle="tooltip" data-placement="top" title="view">
@@ -104,6 +108,14 @@
                                 </td>
                             </tr>
                             <tr class="spacer"></tr>
+
+
+                            @endforeach
+
+                            @else
+
+                            @endif
+
                         </tbody>
                     </table>
                 </div>

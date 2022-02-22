@@ -1,9 +1,6 @@
 @extends("layouts.spacedcustomlayout")
 
 @section('body')
-    <li><a href="https://wa.me/{{ $compd ? $compd->companyPhone : '0' }}" class="fab fa-whatsapp"></a></li>
-    <li><a href="mailto:{{ $compd ? $compd->companyEmail : 'coming soon' }}" class="fa fa-envelope"></a></li>
-
 
     <script>
         $(function() {

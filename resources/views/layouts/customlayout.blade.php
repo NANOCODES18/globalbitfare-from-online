@@ -109,13 +109,13 @@ $(document).ready(function(){
 	</li>
 	<li class="data">
 		<div class="bodycontainer">
-			<ul>
-				{{-- <li><div>{{$company_features? $company_features->totaldeposit : 0}} USD</div>Payouts</li>
+			{{-- <ul>
+				<li><div>{{$company_features? $company_features->totaldeposit : 0}} USD</div>Payouts</li>
 				<li><div>+5.26%</div>24 hour price</li>
 				<li><div>12.820 BTC</div>24 hour volume</li>
 				<li><div>{{$company_features? $company_features->onlinevisitors : 0}}</div>active traders</li>
-				<li><div class="btcwdgt-price" bw-cur="usd"></div>Live Bitcoin price</li> --}}
-			</ul>
+				<li><div class="btcwdgt-price" bw-cur="usd"></div>Live Bitcoin price</li>
+			</ul> --}}
 		</div>
 	</li>
 	<li class="account row">
@@ -225,8 +225,8 @@ $(document).ready(function(){
 <script>
 /*--window load functions--*/
 jQuery(window).load(function(){
-	var preLoder = $(".preloader");
-	preLoder.fadeOut(1000);
+	var preLoader = $(".preloader");
+	preLoader.fadeOut(1000);
 	$("body").removeClass("loading_it");
 });
 </script>
@@ -239,7 +239,7 @@ jQuery(window).load(function(){
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+447458155378", // WhatsApp number
+            whatsapp: "", // WhatsApp number
             call_to_action: "Message us", // Call to action
             position: "left", // Position may be 'right' or 'left'
         };
@@ -253,8 +253,47 @@ jQuery(window).load(function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @yield('body')
 @include('flash-message')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {{-- /*--window Scroll functions--*/
 /*--window Scroll functions--*/ --}}
@@ -310,12 +349,9 @@ $(window).on('scroll', function () {
 				<div class="col-3 col-m-4 col-sm-12">
 				<div class="padding">
 					<h3>CONTACT US</h3>
-					{{-- <ul>
-						<li>{{$compd? $compd->companyLocation : "coming soon"}}</li>
-					</ul>
-					<a href="mailto://{{$compd? $compd->companyEmail : "coming soon"}}"><h3>{{$compd? $compd->companyEmail : "coming soon"}}</h3></a>
-					<a href="tel:{{$compd? $compd->companyPhone : "0"}}">{{$compd? $compd->companyPhone : "0"}}</a>
-					<ul> --}}
+					<ul>
+						{{-- <li>{{$compd? $compd->companyLocation : "coming soon"}}</li> --}}
+					{{-- ss<ul> --}}
 						<li>MON-SAT 08AM ⇾ 05PM</li>
 						<ul class="social">
 							<li><a href="#" class="circle"><i class="fa fa-facebook"></i></a></li>
@@ -328,7 +364,7 @@ $(window).on('scroll', function () {
 					<div class="col-6 col-m-6 col-sm-6" style="padding-bottom:0">
 						<div class="value">$198.76B</div>
 						MARKET CAP
-						<div class="value">69K+</div>
+						{{-- <div class="value">{{$company_features? $company_features->onlinevisitors : "coming soon"}}+</div> --}}
 						ACTIVE ACCOUNTS
 					</div>
 					<div class="col-6 col-m-6 col-sm-6" style="padding-bottom:0">

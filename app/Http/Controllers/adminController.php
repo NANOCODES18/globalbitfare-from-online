@@ -293,7 +293,10 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
 
     public function runninginvestments()
     {
-        return view("admin.runninginvestments");
+
+        $runninginvestments = Investment::where("investmentStatus", 0)->get();
+        $data = ["runninginvestments" => $runninginvestments];
+        return view("admin.runninginvestments",$data );
     }
 
 
@@ -927,6 +930,8 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
             $payments->btc_address = $request->btc_address;
             $payments->paypal = $request->paypal;
             $payments->eth = $request->eth;
+            $payments->usdt = $request->usdt;
+            $payments->xrp = $request->xrp;
             if ($payments->save()) {
                 # code...
                 return redirect()->route('payments_settings')->with('success', 'payments settings updated succesfuly');
@@ -940,6 +945,8 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
             $payments->btc_address = $request->btc_address;
             $payments->paypal = $request->paypal;
             $payments->eth = $request->eth;
+            $payments->usdt = $request->usdt;
+            $payments->xrp = $request->xrp;
             if ($payments->save()) {
                 # code...
                 return redirect()->route('payments_settings')->with('success', 'payments settings updated succesfuly');

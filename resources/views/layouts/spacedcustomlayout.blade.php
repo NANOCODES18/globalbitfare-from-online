@@ -239,7 +239,7 @@ jQuery(window).load(function(){
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+447458155378", // WhatsApp number
+            whatsapp: {{$compd? $compd->companyPhone : "0"}}, // WhatsApp number
             call_to_action: "Message us", // Call to action
             position: "left", // Position may be 'right' or 'left'
         };
@@ -253,8 +253,47 @@ jQuery(window).load(function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @yield('body')
 @include('flash-message')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {{-- /*--window Scroll functions--*/
 /*--window Scroll functions--*/ --}}
