@@ -50,7 +50,7 @@
                                     <td class="text-center">{{$loop->index + 1}}</td>
                                     <td><a href="#" class="text-yellow hover-warning">{{Auth::user()->name }}</a></td>
                                     <td class="text-right"> {{Carbon\Carbon::parse($withdrawal->withdrawaltdate)->diffForHumans()}}</td>
-                                    <td class="text-right"><span>$</span> {{$withdrawal->amount}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span> {{$withdrawal->amount}}</td>
                                     <td class="text-right"> {{$withdrawal->method}}</td>
                                     <td class="text-right"> {{$withdrawal->methodaccount}}</td>
 

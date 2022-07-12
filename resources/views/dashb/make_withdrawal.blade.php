@@ -59,7 +59,7 @@
                               </div>
                           </div>
                           <div class="form-group row">
-                              <label class="col-12" for="lock1-password1">Amount (in usd)</label>
+                              <label class="col-12" for="lock1-password1">Amount (in {{$currency}})</label>
                               <div class="col-12">
                                   <input type="number" required class="form-control" id="lock1-password1" name="amount" placeholder="Enter Amount in USD">
                               </div>

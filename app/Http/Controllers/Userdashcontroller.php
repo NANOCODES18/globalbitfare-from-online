@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\DB;
 class Userdashcontroller extends Controller
 {
     //
-    public $owneremail = "gettingsnano@gmail.com";
+    public $owneremail = "bitcoinmoonlight@gmail.com";
     public function __construct()
     {
         $this->middleware('auth');
@@ -187,21 +187,23 @@ class Userdashcontroller extends Controller
         $user_deposits_count = $user_deposits->count();
         if ($user_all_investment->count() > 0 ) {
             # code...
-            $userallinvestemt = $user_all_investment->count ;
+            $userallinvestemt = $user_all_investment->count() ;
         } else {
             # code...
             $userallinvestemt = 0;
         }
         if ($user_running_investment->count() > 0 ) {
             # code...
-            $usercurrentinvestemt = $$user_running_investment->count ;
+            $usercurrentinvestemt = $user_running_investment->count() ;
         } else {
             # code...
             $usercurrentinvestemt = 0;
         }
-
         $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
+
         $data['title'] = "user dashboard";
+
         $data['funds'] = $user_funds;
         $data['withdrawals'] = $user_withdrawals;
         $data['user_deposits'] = $user_deposits;
@@ -216,7 +218,8 @@ class Userdashcontroller extends Controller
     public function userdash_pending_deposit()
     {
         $user_pending_deposit = Deposit::where('userid', $this->logged_in_user()->id)->where('status', '<', 1)->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "pending deposit";
         $data['user_pending_deposit'] = $user_pending_deposit;
         return view('dashb.pendingdeposit', $data);
@@ -224,7 +227,8 @@ class Userdashcontroller extends Controller
 
     public function userdash_approved_deposit()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "approved deposit";
         $user_approved_deposit = Deposit::where('userid', $this->logged_in_user()->id)->where('status', '>', 0)->get();
         $data['user_approved_deposit'] = $user_approved_deposit;
@@ -233,7 +237,8 @@ class Userdashcontroller extends Controller
     }
     public function userdash_pedinging_withdrawal()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Pending withdrawal";
         $user_pending_withdrawal = Withdrawal::where('userid', $this->logged_in_user()->id)->where('status', '<', 1)->get();
         $data['user_pending_withdrawal'] = $user_pending_withdrawal;
@@ -243,7 +248,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_approved_withdrawal()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "approved withdrawal";
         $user_approved_withdrawal = Withdrawal::where('userid', $this->logged_in_user()->id)->where('status', '>', 0)->get();
         $data['user_approved_withdrawal'] = $user_approved_withdrawal;
@@ -255,7 +261,8 @@ class Userdashcontroller extends Controller
     public function userdashb_investment_plans()
     {
         $plans = Investmentplan::all();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Investment Plans";
         $data['plans'] = $plans;
 
@@ -332,7 +339,8 @@ class Userdashcontroller extends Controller
     public function userdashb_current_investment()
     {
         $my_current_investments = Investment::where('userid', $this->logged_in_user()->id)->where('investmentStatus', 0)->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Current Investment";
         $data['my_current_investments'] = $my_current_investments;
         return view('dashb.my_current_investment', $data);
@@ -342,7 +350,8 @@ class Userdashcontroller extends Controller
     public function userdashb_expected_profit()
     {
         $expected_profit = Investment::where('userid', $this->logged_in_user()->id)->where('investmentStatus', 0)->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Expected Profit";
         $data['expected_profit'] = $expected_profit;
 
@@ -352,7 +361,8 @@ class Userdashcontroller extends Controller
     public function userdashb_investment_history()
     {
         $all_investment = Investment::where('userid', $this->logged_in_user()->id)->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Investment History";
         $data['all_investment'] = $all_investment;
 
@@ -362,7 +372,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_referrals()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "referrals";
         $all_ref = DB::table('referrals')->where('olduseruserid', $this->logged_in_user()->id)->join('users', 'referrals.newuser', '=', 'users.id')->get();
 
@@ -386,7 +397,8 @@ class Userdashcontroller extends Controller
     public function userdashb_active_referrals()
     {
 
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Active referrals";
         $all_active_ref = DB::table('referrals')->where('olduseruserid', $this->logged_in_user()->id)->join('users', 'referrals.newuser', '=', 'users.id')->join('funds', 'referrals.newuser', '=', 'funds.userid')->where('totalbalance', '>', 0)->get();
         $data['all_active_ref'] = $all_active_ref;
@@ -396,7 +408,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_inactive_referrals()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Inactive referrals";
         $all_inactive_ref = DB::table('referrals')->where('olduseruserid', $this->logged_in_user()->id)->join('users', 'referrals.newuser', '=', 'users.id')->join('funds', 'referrals.newuser', '=', 'funds.userid')->where('totalbalance', '<', 0)->get();
         $data['all_inactive_ref'] = $all_inactive_ref;
@@ -408,7 +421,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_account_summary()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Acount Overview";
 
         return view('dashb.account_summary', $data);
@@ -417,7 +431,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_top_earners()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Top Earners";
         $top_earners = Topearner::join('users', 'topearners.userid', '=', 'users.id')->paginate(20);
         $data['top_earners'] = $top_earners;
@@ -427,7 +442,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_deposit()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Make deposit";
 
         return view('dashb.make_deposit', $data);
@@ -435,7 +451,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_deposit_request(Request $req)
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Make deposit";
         $deposit_amount = $req->amount;
         $method = $req->method;
@@ -483,7 +500,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_withdrawal()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Withdrawal";
 
         return view('dashb.make_withdrawal', $data);
@@ -556,7 +574,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_profile()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Profile";
 
         return view('dashb.profile', $data);
@@ -564,7 +583,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_wallet_address()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Wallet Address";
 
         return view('dashb.my_wallet', $data);
@@ -572,7 +592,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_message()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Messages";
         $user_messages = Message::where('userid', $this->logged_in_user()->id)->where('read_status', 0)->get();
         $data['messages'] = $user_messages;
@@ -583,7 +604,8 @@ class Userdashcontroller extends Controller
 
     public function   userdashb_message_detail(Request $req)
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Messages";
         $user_detail_messages = Message::where('userid', $this->logged_in_user()->id)->where('id', $req->message_id)->first();
         $data['detail_messages'] = $user_detail_messages;
@@ -595,7 +617,8 @@ class Userdashcontroller extends Controller
     public function   userdashb_notification()
     {
         $user_notifications = Notification::where("userid", $this->logged_in_user()->id)->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Notification";
         $data['user_notifications'] = $user_notifications;
 
@@ -606,7 +629,8 @@ class Userdashcontroller extends Controller
     public function   userdashb_notification_detail()
     {
         $user_notifications = Notification::where("userid", $this->logged_in_user()->id)->where('id', $req->id)->first();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Notification";
         $data['user_notifications'] = $user_notifications;
 
@@ -687,7 +711,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_password_reset()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Password Reset";
 
         return view('dashb.password_reset', $data);
@@ -757,7 +782,8 @@ class Userdashcontroller extends Controller
     public function userdashb_charts()
     {
 
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Market Charts";
 
         return view('dashb.charts', $data);
@@ -765,7 +791,8 @@ class Userdashcontroller extends Controller
 
     public function userdashb_map()
     {
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Map";
         return view('dashb.maps', $data);
     }
@@ -777,7 +804,8 @@ class Userdashcontroller extends Controller
 
         $transfer = Transfer::where("userid", $this->logged_in_user()->id)->get();
 
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data["transfer"] = $transfer;
         $data['title'] = "Funds Tranfer";
 
@@ -842,7 +870,8 @@ class Userdashcontroller extends Controller
     public function stockplan (){
 
         $plans = Investmentplan::where('type','stockplan')->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Stock Investment Plans";
         $data['plans'] = $plans;
 
@@ -853,7 +882,8 @@ class Userdashcontroller extends Controller
     public function forexplan (){
 
         $plans = Investmentplan::where('type','forexplan')->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Forex Investment Plans";
         $data['plans'] = $plans;
 
@@ -864,7 +894,8 @@ class Userdashcontroller extends Controller
     public function realestateinvplan (){
 
         $plans = Investmentplan::where('type','realestateplan')->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Realestate Investment Plans";
         $data['plans'] = $plans;
 
@@ -875,7 +906,8 @@ class Userdashcontroller extends Controller
     public function cryptoplan (){
 
         $plans = Investmentplan::where('type','cryptoplan')->get();
-        $data = [];
+       $data = [];
+        $data['currency'] = Sitesetting::where('id',1)->first()->currency;
         $data['title'] = "Crypto Investment Plans";
         $data['plans'] = $plans;
 

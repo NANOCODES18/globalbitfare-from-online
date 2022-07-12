@@ -23,7 +23,7 @@
           <!-- Default box -->
             <div class="box box-solid bg-dark">
               <div class="box-header with-border">
-                <h3 class="box-title">Funds user to user tranfer</h3>
+                <h3 class="box-title">Funds user to user tranfer </h3>
 
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-12" for="lock1-password1">Amount (in usd)</label>
+                            <label class="col-12" for="lock1-password1">Amount (in {{$currency}})</label>
                             <div class="col-12">
                                 <input type="number" required class="form-control" id="lock1-password1" name="amount" placeholder="Enter Amount in USD">
                             </div>

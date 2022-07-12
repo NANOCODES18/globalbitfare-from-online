@@ -23,7 +23,10 @@
                                     <i class="fa fa-download"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark">${{ $funds ? $funds->totaldepost : 0.01 }}</< /h5>
+                                    <h5 class="mb-1 text-dark">
+                                        {{$currency}}
+                                        <b class="ercon">{{ $funds ? $funds->totaldepost : 0.01 }}</b><b>.00</b>
+                                        </h5>
                                         <small class="text-muted text-dark">Total Deposit</small>
                                 </div>
                             </div>
@@ -36,7 +39,8 @@
                                     <i class="fa fa-coins"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark"><b>${{ $funds ? $funds->totalprofit : 0.01 }}</b></h5>
+                                    <h5 class="mb-1 text-dark">{{$currency}}<b
+                                            class="ercon">{{ $funds ? $funds->totalprofit : 0.01 }}</b><b>.00</b></h5>
                                     <small class="text-muted text-dark">Total Profit</small>
                                 </div>
                             </div>
@@ -49,7 +53,8 @@
                                     <i class="fa fa-gift"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark"><b>${{ $funds ? $funds->totalbonus : 0.01 }}</b></h5>
+                                    <h5 class="mb-1 text-dark">{{$currency}}<b
+                                            class="ercon">{{ $funds ? $funds->totalbonus : 0.01 }}</b><b>.00</b></h5>
                                     <small class="text-muted text-dark">Total Bonus</small>
                                 </div>
                             </div>
@@ -62,7 +67,8 @@
                                     <i class="fa fa-dollar-sign"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark"><b>${{ $funds ? $funds->balance : 0.01 }}</b></h5>
+                                    <h5 class="mb-1 text-dark">{{$currency}}<b
+                                            class="ercon">{{ $funds ? $funds->balance : 0.01 }}</b><b>.00</b></h5>
                                     <small class="text-muted">Account Balance</small>
                                 </div>
                             </div>
@@ -76,7 +82,8 @@
                                     <i class="fa fa-retweet"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark"><b>${{ $funds ? $funds->totalrefbonus : 0.01 }}</b></h5>
+                                    <h5 class="mb-1 text-dark">{{$currency}}<b
+                                            class="ercon">{{ $funds ? $funds->totalrefbonus : 0.01 }}</b><b>.00</b></h5>
                                     <small class="text-muted text-dark">Total Referral Bonus</small>
                                 </div>
                             </div>
@@ -90,7 +97,8 @@
                                 </span>
                                 <div>
                                     <h5 class="mb-1 text-dark">
-                                        <b>{{ $userallinvestemt ? $userallinvestemt : 'error' }}</b></h5>
+                                        <b class="ercon">{{ $userallinvestemt ? $userallinvestemt : '0' }}</b>
+                                    </h5>
                                     <small class="text-muted text-dark">Total Investment Plans</small>
                                 </div>
                             </div>
@@ -104,7 +112,9 @@
                                 </span>
                                 <div>
                                     <h5 class="mb-1 text-dark">
-                                        <b>{{ $usercurrentinvestemt ? $usercurrentinvestemt : 'error' }}</b></h5>
+                                        <b
+                                            class="ercon">{{ $usercurrentinvestemt ? $usercurrentinvestemt : '0' }}</b>
+                                    </h5>
                                     <small class="text-muted text-dark">Total Active Investment Plans</small>
                                 </div>
                             </div>
@@ -117,7 +127,9 @@
                                     <i class="fa fa-arrow-alt-circle-up"></i>
                                 </span>
                                 <div>
-                                    <h5 class="mb-1 text-dark">${{ $funds ? $funds->totalwithdrawal : 0.01 }}</h5>
+                                    <h5 class="mb-1 text-dark">
+                                        {{$currency}}<b class="ercon">{{ $funds ? $funds->totalwithdrawal : 0.01 }}</b><b>.00</b>
+                                    </h5>
 
                                     <small class="text-muted text-dark">Total Withdrawals</small>
                                 </div>
@@ -125,6 +137,15 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    let x = document.getElementsByClassName('ercon');
+                    for (let i = 0; i < x.length; i++) {
+                        value = x[i].innerHTML;
+                        parse = parseFloat(value);
+                        commas = parse.toLocaleString();
+                        x[i].innerHTML = commas;
+                    }
+                </script>
 
                 <div class="row">
                     <div class="pt-1 col-12">
@@ -315,5 +336,6 @@
         </section>
         <!-- /.content -->
     </div>
+
 
 @endsection()

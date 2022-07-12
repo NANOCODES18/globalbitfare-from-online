@@ -61,6 +61,7 @@
                 <th>ETH</th>
                 <th>USDT</th>
                 <th>XRP</th>
+                <th>Currency</th>
                 <th>CHANGE</th>
 
             </tr>
@@ -79,6 +80,8 @@
 
                         <td><input type="text" name="usdt" id="" value="{{$payment? $payment->usdt :'No usdt address set'}}"></td>
                         <td><input type="text" name="xrp" id="" value="{{$payment? $payment->xrp :'No xrp address set'}}"></td>
+
+                        <td><input type="text" name="currency" id="" value="{{$payment? $payment->currency :'No Currency set'}}"></td>
 
                         <td>
                             <button type="submit" class="btn btn-primary">change</button>

@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-12 col-m-12 col-sm-12">
-                <input class="round" type="email" placeholder="Email" style="width:100%" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <input class="round" required type="email" placeholder="Email" style="width:100%" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

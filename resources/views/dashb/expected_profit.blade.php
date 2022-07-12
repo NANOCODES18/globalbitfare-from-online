@@ -64,10 +64,10 @@
                                     <td class="text-center">{{$loop->index + 1}}</td>
                                     <td><a href="#" class="text-yellow hover-warning">{{$profit->investmentplan}}</a></td>
                                     <td class="text-right"><span></span>{{Carbon\Carbon::parse($profit->investmentdate)->diffForHumans()}}</td>
-                                    <td class="text-right"><span>$</span> {{$profit->investmentamount}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span> {{$profit->investmentamount}}</td>
                                     <td class="text-right"><span class="label label-success">{{Carbon\Carbon::parse($profit->investmentmaturitydate)->diffForHumans()}}</span></td>
-                                    <td class="text-right"><span>$</span>{{$profit->investmentprofit}}</td>
-                                    <td class="text-right"><span>$</span>{{$profit->investmenttotalprofit}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span>{{$profit->investmentprofit}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span>{{$profit->investmenttotalprofit}}</td>
 
                                  </tr>
                                  @php
@@ -78,7 +78,7 @@
                                  <tr>
                                     <td class="text-center" colspan="2">Total Profit = {{$sum_profit}}</td>
 
-                                    <td class="text-right" colspan="3"><span>$</span> Total Amount ={{$sum_profit_total}}</td>
+                                    <td class="text-right" colspan="3"><span>{{$currency}}</span> Total Amount ={{$sum_profit_total}}</td>
 
                                  </tr>
 

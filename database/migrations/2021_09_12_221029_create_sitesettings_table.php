@@ -21,6 +21,7 @@ class CreateSitesettingsTable extends Migration
             $table->string('eth');
             $table->string('usdt');
             $table->string('xrp');
+            $table->string('currency');
         });
     }
 

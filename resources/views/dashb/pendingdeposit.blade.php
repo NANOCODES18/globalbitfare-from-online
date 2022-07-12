@@ -50,9 +50,9 @@
                                     <td class="text-center">{{$loop->index + 1}}</td>
                                     <td><a href="#" class="text-yellow hover-warning">{{ Auth::user()->name }}</a></td>
                                     <td class="text-right"><span></span>{{Carbon\Carbon::parse($pending_deposit->depositDate)->diffForHumans()}}</td>
-                                    <td class="text-right"><span>$</span> {{$pending_deposit->amount}}</td>
-                                    <td class="text-right"><span>$</span>{{$pending_deposit->method}}</td>
-                                    <td class="text-right"><span>$</span>{{$pending_deposit->methodAccount	}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span> {{$pending_deposit->amount}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span>{{$pending_deposit->method}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span>{{$pending_deposit->methodAccount	}}</td>
                                     <td class="text-right"><span class="label label-danger">Deposit pending</span></td>
                                  </tr>
 

@@ -235,31 +235,6 @@ jQuery(window).load(function(){
 
 
 
-<!-- WhatsHelp.io widget -->
-<script type="text/javascript">
-    (function () {
-        var options = {
-            whatsapp: {{$compd? $compd->companyPhone : "0"}}, // WhatsApp number
-            call_to_action: "Message us", // Call to action
-            position: "left", // Position may be 'right' or 'left'
-        };
-        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
-</script>
-<!-- /WhatsHelp.io widget -->
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -314,7 +289,7 @@ $(window).on('scroll', function () {
 				<div style="z-index:2; position: relative">
 					<h2 class="margintb">GET STARTED TODAY WITH BITCOIN INVESTMENT</h2>
 					<p class="margintb">Open account for free and start trading Bitcoins!</p>
-					<a href="get-started.html" class="btn">GET STARTED</a>
+					<a href="{{route('login')}}" class="btn">GET STARTED</a>
 				</div>
 			</div>
 		</div>
@@ -403,7 +378,45 @@ $(window).on('scroll', function () {
 		  I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
 		},false)
 	  })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
-	</script>
+	</script><script>
+    var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?18090';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = url;
+    var options = {
+  "enabled":true,
+  "chatButtonSetting":{
+      "backgroundColor":"#4dc247",
+      "ctaText":"Talk To Us",
+      "borderRadius":"25",
+      "marginLeft":"50",
+      "marginBottom":"50",
+      "marginRight":"50",
+      "position":"left"
+  },
+  "brandSetting":{
+      "brandName":"Globalbitfare",
+      "brandSubTitle":"Typically replies within few miniutes",
+      "brandImg":"https://globalbitfare.com/images/blockchain.png",
+      "welcomeText":"Hi there! \nWelcome to Globalbitfare\nHow can I help you?",
+      "messageText":"Hello, I have a question",
+      "backgroundColor":"#0a5f54",
+      "ctaText":"Start Chat",
+      "borderRadius":"25",
+      "autoShow":true,
+      "phoneNumber":"{{$compd? $compd->companyPhone : "0"}}"
+  }
+};
+    s.onload = function() {
+        CreateWhatsappChatWidget(options);
+    };
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+</script>
+<script src="//code-eu1.jivosite.com/widget/94K1AeEhSs" async></script>
+
 	</body>
 
 	</html>
+

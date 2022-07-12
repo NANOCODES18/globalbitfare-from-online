@@ -140,6 +140,12 @@
                                     <th>TRADING BALANCE</th>
                                     <th>CURRENT BALANCE</th>
 
+                                    <th>Total Profit</th>
+                                    <th>Total Deposit</th>
+                                    <th>Total Withdrawal</th>
+                                    <th>Total Refbonus</th>
+                                    <th>Total Bonus</th>
+
                                     <th></th>
                                 </tr>
                             </thead>
@@ -166,6 +172,21 @@
                                         </td>
                                         <td>
                                             <span class="desc"> <input type="text" name="balance" value="{{ $userFunds? $userFunds->balance :'error showing profit balance amount'}}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="desc"> <input type="text" name="totalprofit" value="{{ $userFunds? $userFunds->totalprofit :'error showing profit balance amount'}}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="desc"> <input type="text" name="totaldepost" value="{{ $userFunds? $userFunds->totaldepost :'error showing profit balance amount'}}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="desc"> <input type="text" name="totalwithdrawal" value="{{ $userFunds? $userFunds->totalwithdrawal :'error showing profit balance amount'}}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="desc"> <input type="text" name="totalrefbonus" value="{{ $userFunds? $userFunds->totalrefbonus :'error showing profit balance amount'}}"></span>
+                                        </td>
+                                        <td>
+                                            <span class="desc"> <input type="text" name="totalbonus" value="{{ $userFunds? $userFunds->totalbonus :'error showing profit balance amount'}}"></span>
                                         </td>
                                         <td>
                                             <div class="table-data-feature">

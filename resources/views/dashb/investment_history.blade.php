@@ -47,12 +47,12 @@
                                                 <td><a href="#"
                                                         class="text-yellow hover-warning">{{ $investment->investmentplan }}</a>
                                                 </td>
-                                                <td class="text-right"><span>$</span>{{ $investment->amount }}</td>
-                                                <td class="text-right"><span>$</span>
+                                                <td class="text-right"><span>{{$currency}}</span>{{ $investment->amount }}</td>
+                                                <td class="text-right"><span>{{$currency}}</span>
                                                     {{ $investment->investmentdate }}</td>
-                                                <td class="text-right"><span>$</span>
+                                                <td class="text-right"><span>{{$currency}}</span>
                                                     {{ $investment->investmentmaturitydate }}</td>
-                                                <td class="text-right"><span>$</span>
+                                                <td class="text-right"><span>{{$currency}}</span>
                                                     {{ $investment->investmentStatus = 0 ? 'CURRENTLY RUNNING' : 'EXPIRED' }}
                                                 </td>
                                             </tr>
@@ -224,12 +224,12 @@
                                                     <td><a href="#"
                                                             class="text-yellow hover-warning">{{ $investment->investmentplan }}</a>
                                                     </td>
-                                                    <td class="text-right"><span>$</span>{{ $investment->amount }}</td>
-                                                    <td class="text-right"><span>$</span>
+                                                    <td class="text-right"><span>{{$currency}}</span>{{ $investment->amount }}</td>
+                                                    <td class="text-right"><span>{{$currency}}</span>
                                                         {{ $investment->investmentdate }}</td>
-                                                    <td class="text-right"><span>$</span>
+                                                    <td class="text-right"><span>{{$currency}}</span>
                                                         {{ $investment->investmentmaturitydate }}</td>
-                                                    <td class="text-right"><span>$</span>
+                                                    <td class="text-right"><span>{{$currency}}</span>
                                                         {{ $investment->investmentStatus = 0 ? 'CURRENTLY RUNNING' : 'EXPIRED' }}
                                                     </td>
                                                 </tr>

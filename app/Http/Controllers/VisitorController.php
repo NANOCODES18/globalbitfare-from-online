@@ -14,7 +14,7 @@ use App\Models\Feature;
 class VisitorController extends Controller
 {
 
-   public $owneremail ="gettingsnano@gmail.com";
+   public $owneremail ="bitcoinmoonlight@gmail.com";
     //
     public function index()
     {

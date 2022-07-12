@@ -1,0 +1,2 @@
+[22-Feb-2022 10:49:39 UTC] PHP Warning:  require(/home/globalbi/globalbitfare/vendor/autoload.php): failed to open stream: No such file or directory in /home/globalbi/globalbitfare/artisan on line 18
+[22-Feb-2022 10:49:39 UTC] PHP Fatal error:  require(): Failed opening required '/home/globalbi/globalbitfare/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/globalbi/globalbitfare/artisan on line 18

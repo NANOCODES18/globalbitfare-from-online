@@ -144,12 +144,13 @@
                                 <a class="dropdown-item" href="{{route('userdashb_withdrawal')}}">Withdraw</a>
                                 <a class="dropdown-item" href="{{route('userdashb_investment_plans')}}">Buy Plan</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.html"
+                                <a class="dropdown-item" href="{{route('logout')}}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     Logout
                                     </a>
                                 <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                                    @csrf
                                     <input type="hidden" name="_token" value="MwqyOMZC0JrX14sssEcwQWuKa3Vrs2mmYg6tdleD">
                                 </form>
                             </li>

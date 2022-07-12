@@ -32,9 +32,9 @@
                                   <td class="text-center">{{$loop->index + 1}}</td>
                                   <td><a href="#" class="text-yellow hover-warning">{{$my_investment->investmentplan}}</a></td>
                                   <td class="text-right"><span></span> {{Carbon\Carbon::parse($my_investment->investmentdate)->diffForHumans() }}</td>
-                                  <td class="text-right"><span>$</span> {{$my_investment->investmentamount}}</td>
+                                  <td class="text-right"><span>{{$currency}}</span> {{$my_investment->investmentamount}}</td>
                                   <td class="text-right"><span></span>{{Carbon\Carbon::parse($my_investment->investmentmaturitydate)->diffForHumans() }}</td>
-                                  <td class="text-right"><span>$</span> {{$my_investment->investmentprofit}}</td>
+                                  <td class="text-right"><span>{{$currency}}</span> {{$my_investment->investmentprofit}}</td>
                                   <td class="text-right"><span class="label label-success">Still Running</span></td>
                                </tr>
 
@@ -139,12 +139,12 @@
                                                     <td class="text-right"><span></span>
                                                         {{ Carbon\Carbon::parse($my_investment->investmentdate)->diffForHumans() }}
                                                     </td>
-                                                    <td class="text-right"><span>$</span>
+                                                    <td class="text-right"><span>{{$currency}}</span>
                                                         {{ $my_investment->investmentamount }}</td>
                                                     <td class="text-right">
                                                         <span></span>{{ Carbon\Carbon::parse($my_investment->investmentmaturitydate)->diffForHumans() }}
                                                     </td>
-                                                    <td class="text-right"><span>$</span>
+                                                    <td class="text-right"><span>{{$currency}}</span>
                                                         {{ $my_investment->investmentprofit }}</td>
                                                     <td class="text-right"><span class="label label-success">Still
                                                             Running</span></td>

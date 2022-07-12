@@ -20,7 +20,7 @@
         <div class="col-md-8 offset-md-2">
             <strong>You can refer users by sharing your referral link:</strong><br>
             <div class="mb-3 input-group">
-                <input type="text" class="form-control myInput readonly text-dark bg-light" value="https://auxilliarytradex.com/register/?refid={{Auth::user()->id}}" id="myInput" readonly>
+                <input type="text" class="form-control myInput readonly text-dark bg-light" value="https://globalbitfare.com//register/?refid={{Auth::user()->id}}" id="myInput" readonly>
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
                 </div>

@@ -13398,7 +13398,7 @@ danger-color : #f3545d
     color: rgba(169, 175, 187, 0.82) !important;
   }
   body[data-background-color="dark"] .main-panel label {
-    color: #fff !important;
+    color: #fff ;
   }
   body[data-background-color="dark"] .card,
   body[data-background-color="dark"] .list-group-item,
@@ -13694,9 +13694,8 @@ danger-color : #f3545d
     ) !important;
     background: linear-gradient(-45deg, #e80a15, #f25961) !important;
   }
-  
-  
+
+
   /*end*/
-  
-  
-  
+
+

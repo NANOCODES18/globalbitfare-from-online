@@ -50,7 +50,7 @@
                                     <td class="text-center">{{$loop->index + 1}}</td>
                                     <td><a href="#" class="text-yellow hover-warning">{{ Auth::user()->name }}</a></td>
                                     <td class="text-right"><span></span>{{Carbon\Carbon::parse($user_approved_deposit->depositDate)->diffForHumans()}}</td>
-                                    <td class="text-right"><span>$</span> {{$user_approved_deposit->amount}}</td>
+                                    <td class="text-right"><span>{{$currency}}</span> {{$user_approved_deposit->amount}}</td>
                                     <td class="text-right"><span></span>{{$user_approved_deposit->method}}</td>
                                     <td class="text-right"><span></span>{{$user_approved_deposit->methodAccount}}</td>
                                     <td class="text-right"><span class="label label-success">Deposit Approved</span></td>

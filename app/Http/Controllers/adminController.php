@@ -26,7 +26,7 @@ class adminController extends Controller
 {
 
 
-  public  $website = "info@auxilliarytradex.com";
+  public  $website = "info@globalbitfare.com";
 
     public function __construct()
     {
@@ -932,6 +932,7 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
             $payments->eth = $request->eth;
             $payments->usdt = $request->usdt;
             $payments->xrp = $request->xrp;
+            $payments->currency = $request->currency;
             if ($payments->save()) {
                 # code...
                 return redirect()->route('payments_settings')->with('success', 'payments settings updated succesfuly');
@@ -947,6 +948,7 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
             $payments->eth = $request->eth;
             $payments->usdt = $request->usdt;
             $payments->xrp = $request->xrp;
+            $payments->currency = $request->currency;
             if ($payments->save()) {
                 # code...
                 return redirect()->route('payments_settings')->with('success', 'payments settings updated succesfuly');
@@ -1145,6 +1147,12 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
         $currentprofit = $req->currentprofit;
         $userId = $req->userid;
 
+        $totalprofit = $req->totalprofit;
+        $totaldepost = $req->totaldepost;
+        $totalwithdrawal = $req->totalwithdrawal;
+        $totalrefbonus = $req->totalrefbonus;
+        $totalbonus = $req->totalbonus;
+
 
         $user_funds = Fund::where('userid', $userId)->first();
 
@@ -1152,6 +1160,13 @@ $userdetail = User::where('id',$userwithdrawal->userid)->first();
         $user_funds->currentinvestment = $currentinvestment;
         $user_funds->totalbalance = $totalbalance;
         $user_funds->currentprofit= $currentprofit;
+
+        $user_funds->totalprofit = $totalprofit;
+        $user_funds->totaldepost= $totaldepost;
+        $user_funds->totalwithdrawal = $totalwithdrawal;
+        $user_funds->totalrefbonus= $totalrefbonus;
+        $user_funds->totalbonus = $totalbonus;
+
 
 
         if ($user_funds->save()) {
